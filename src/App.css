@@ -136,3 +136,29 @@ body {
   margin-left: 1.5rem;
   cursor: pointer;
 }
+.video{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 10px
+}
+.videoPart{
+  margin: auto;
+}
+
+iframe{
+  width: 75vw;
+  height: 75vh;
+  
+}
+.movieDecription{
+  display: flex;
+  
+  justify-content: center;
+  align-items: center;
+
+}
+.description{
+  width: 20rem;
+}

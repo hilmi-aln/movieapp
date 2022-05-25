@@ -26,7 +26,7 @@ const Home = () => {
       navigate("/login");
     }
   };
-  
+
   const MovieInfo = () => {
     axios(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}`).then(
       (res) => {
