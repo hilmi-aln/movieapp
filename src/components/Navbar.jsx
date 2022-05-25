@@ -14,10 +14,7 @@ const Navbar = () => {
   const loginClicked = () => {
     navigate("/login");
   };
-  const logoutClicked = ()=> {
-    logOut();
-    navigate("/login");
-  }
+  
   
   return (
     <div>
@@ -28,7 +25,7 @@ const Navbar = () => {
           </Link>
           {currentUser ? (
             <div>
-              <button type="button" className="btn btn-outline-light m-1" onClick={logoutClicked}>
+              <button type="button" className="btn btn-outline-light m-1" onClick={logOut}>
                 Logout
               </button>
             </div>
