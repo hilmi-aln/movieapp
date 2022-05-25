@@ -6,6 +6,8 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
+  GoogleAuthProvider,
+  signInWithPopup,
 } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -61,7 +63,17 @@ export const userObserver = (setCurrentUser) => {
   });
 };
 
+export const signInWithGoogle = async (navigate) => {
+  const provider = new GoogleAuthProvider();
+  await signInWithPopup(auth, provider)
+  .then((result) => {
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    navigate("/");
+  }).catch((error) => {
+    console.log(error);
+  });
+};
 export const logOut = () => {
   signOut(auth);
-
 };

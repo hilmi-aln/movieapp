@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { signIn } from "../auth/firebase";
-
+import { signIn, signInWithGoogle } from "../auth/firebase";
 
 const Login = () => {
   const [name, setName] = useState("");
@@ -12,7 +11,11 @@ const Login = () => {
 
   const loginSubmit = (e) => {
     e.preventDefault();
-    signIn(email, password, navigate)
+    signIn(email, password, navigate);
+  };
+
+  const googleLogin = ()=> {
+    signInWithGoogle(navigate)
   }
 
   return (
@@ -28,7 +31,7 @@ const Login = () => {
                       Login
                     </p>
 
-                    <form className="mx-1 mx-md-4" onSubmit={loginSubmit}>
+                    <form className="mx-1 mx-md-4" >
                       <div className="d-flex flex-row align-items-center mb-2">
                         <div className="form-outline flex-fill mb-0">
                           <label
@@ -87,9 +90,16 @@ const Login = () => {
                         <button
                           type="submit"
                           className="btn btn-primary btn-lg"
-                          
+                          onClick={loginSubmit}
                         >
                           Login
+                        </button>
+                        <button
+                          type="submit"
+                          className="btn btn-primary btn-lg"
+                          onClick={googleLogin}
+                        >
+                          Sign in with Google
                         </button>
                       </div>
                     </form>
@@ -108,7 +118,7 @@ const Login = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;
