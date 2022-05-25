@@ -9,7 +9,11 @@ const MovieCard = ({ title, poster_path, overview, vote_average, id }) => {
   const navigate = useNavigate();
 
   const movieDetail = () => {
+    if(currentUser){
     navigate(`details/${id}`);
+    }else{
+      alert("Please login")
+    }
   }
 
   return (
