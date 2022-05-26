@@ -51,9 +51,11 @@ const Home = () => {
         <button type="submit">Search</button>
       </form>
       <div className="d-flex justify-content-center flex-wrap ">
-        {movies.map((movie) => (
-          <MovieCard key={movie.id} {...movie} />
-        ))}
+        {movies.length > 0 ? (
+          movies.map((movie) => <MovieCard key={movie.id} {...movie} />)
+        ) : (
+          <p>No results were found matching your search criteria.</p>
+        )}
       </div>
     </>
   );
